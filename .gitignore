@@ -1,0 +1,8 @@
+prover/MicroProver.hs
+dist-newstyle/
+*.glob
+*.vo
+*.vok
+*.vos
+*.aux
+.lia.cache

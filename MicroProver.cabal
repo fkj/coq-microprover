@@ -1,0 +1,48 @@
+cabal-version:      3.0
+name:               MicroProver
+version:            0.1.0.0
+synopsis:           A propositional prover
+license:            GPL-3.0-or-later
+license-file:       LICENSE
+author:             Frederik Krogsdal Jacobsen
+maintainer:         fkjac@dtu.dk
+category:           Math
+description:        An automated theorem prover for the propositional fragment of implication and falsity.
+                    
+library prover
+    exposed-modules:  MicroProver
+    build-depends:    base ^>=4.14.3.0
+    hs-source-dirs:   prover
+    default-language: Haskell2010
+    ghc-options:      -Wall
+
+library interface
+    exposed-modules:  FormulaParser
+    other-modules:    FormulaLexer
+    build-depends:    base
+                    , prover
+                    , parsec
+                    , bimap
+                    , mtl
+    hs-source-dirs:   interface
+    default-language: Haskell2010
+    ghc-options:      -Wall
+    
+executable MicroProver
+    main-is:          Main.hs
+    build-depends:    base ^>=4.14.3.0
+                    , prover
+                    , interface
+                    , filepath
+                    , optparse-applicative
+    hs-source-dirs:   app
+    default-language: Haskell2010
+    ghc-options:      -Wall
+
+test-suite MicroProver-test
+    default-language: Haskell2010
+    type:             exitcode-stdio-1.0
+    hs-source-dirs:   test
+    main-is:          MicroProverTest.hs
+    build-depends:    base ^>=4.14.3.0
+                    , prover
