@@ -418,7 +418,7 @@ Proof.
   - simpl in *. simp mu in Hmu. apply Imp_R. apply (H a b (p :: Imp r s :: c) (q :: d)); intuition.
 Qed.
 
-Lemma mu_sound : forall a b c d,
+Corollary mu_sound : forall a b c d,
     mu a b c d = [] -> forall i, sc (of_list (c ++ map Pro a)) (of_list (d ++ map Pro b)) i.
 Proof.
   intros. apply sound_sc. apply proven. assumption.
