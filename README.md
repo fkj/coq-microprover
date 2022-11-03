@@ -32,3 +32,7 @@ There is also a small test suite which can be run by running:
 ```bash
 cabal test
 ```
+
+## Acknowledgements
+
+This project is based on the [microprovers](https://github.com/logic-tools/micro) in Isabelle and Agda by Jørgen Villadsen and Asta Halkjær From.
